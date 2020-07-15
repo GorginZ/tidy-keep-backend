@@ -8,4 +8,4 @@
    config.not_found_exception_class_name = 'ActiveRecord::RecordNotFound'
  end
 
-#  config for hashing of JWT
+#  config for hashing of JWT, our token expires after 1 day

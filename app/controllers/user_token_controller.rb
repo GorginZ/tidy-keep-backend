@@ -1,3 +1,3 @@
 class UserTokenController < Knock::AuthTokenController
-# inherits from knock
+# inherits from knock, so has a action through it
 end
