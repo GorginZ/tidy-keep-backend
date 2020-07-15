@@ -4,4 +4,7 @@ Rails.application.routes.draw do
  get "/status", to: "status#index"
 get "/status/user", to: "status#user"
 
+# create new user
+post "/sign-up", to: "users#create"
+
 end
