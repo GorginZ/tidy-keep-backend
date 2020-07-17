@@ -6,30 +6,30 @@ User.create(
 
 Service.create(
   title: 'bathroom',
-  cost: 50
+  price: 50
 )
 
 Service.create(
   title: 'bedroom',
-  cost: 130
+  price: 130
 )
 
 Service.create(
   title: 'standard',
-  cost: 100
+  price: 100
 )
 
 Service.create(
   title: 'deluxe',
-  cost: 200
+  price: 200
 )
 
 Service.create(
   title: 'deep clean',
-  cost: 300
+  price: 300
 )
 
 Service.create(
   title: 'moving in/out',
-  cost: 400
+  price: 400
 )
