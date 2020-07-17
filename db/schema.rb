@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_17_061709) do
+ActiveRecord::Schema.define(version: 2020_07_17_064144) do
+
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "booking_services", force: :cascade do |t|
+    t.bigint "service_id", null: false
+    t.bigint "booking_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "date_of"
+    t.boolean "recurring"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "services", force: :cascade do |t|
     t.string "title"
@@ -32,4 +51,5 @@ ActiveRecord::Schema.define(version: 2020_07_17_061709) do
     t.integer "phone"
   end
 
+  add_foreign_key "bookings", "users"
 end
