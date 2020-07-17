@@ -33,3 +33,10 @@ Service.create(
   title: 'moving in/out',
   price: 400
 )
+
+Booking.create(
+  user_id: 1,
+  recurring: true,
+  date_of: '25/02/15'
+
+)
