@@ -8,4 +8,7 @@ get "/status/user", to: "status#user"
 # create new user
 post "/sign-up", to: "users#create"
 
+
+resources :bookings, only: %i[index]
+
 end
