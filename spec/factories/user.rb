@@ -4,6 +4,5 @@ FactoryBot.define do
     last_name {'Factory Test User Last'}
     email {'s@gmail.com'}
     password {123456}
-
   end 
 end 
