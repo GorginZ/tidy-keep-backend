@@ -12,8 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_07_17_064144) do
 
-
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +21,8 @@ ActiveRecord::Schema.define(version: 2020_07_17_064144) do
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_bookings_services_on_booking_id"
+    t.index ["service_id"], name: "index_bookings_services_on_service_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -51,5 +51,4 @@ ActiveRecord::Schema.define(version: 2020_07_17_064144) do
     t.integer "phone"
   end
 
-  add_foreign_key "bookings", "users"
 end
