@@ -1,7 +1,10 @@
+User.create(
+  email: "Admin@gmail.com", password: "password", first_name: "First", last_name: "Last", phone: 0455345555)
 
 User.create(
-  email: "Admin@gmail.com", password: "password")
+  email: "g@gmail.com", password: "password", first_name: "Georgia", last_name: "Leng", phone: 0455343335)
 
+ Address.create(user_id: 1, street_address: "120 Spencer Street", state: "Vic", post_code: 3003)
 
 
 Service.create(
@@ -36,7 +39,8 @@ Service.create(
 
 Booking.create(
   user_id: 1,
+  date_of: '25/02/15',
   recurring: true,
-  date_of: '25/02/15'
+  address_id: 1
 
 )
