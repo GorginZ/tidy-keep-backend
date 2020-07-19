@@ -44,3 +44,10 @@ Booking.create(
   address_id: 1
 
 )
+BookingService.create(
+  service_id: 1,
+  booking_id: 1,
+  quantity: 2
+
+)
+
