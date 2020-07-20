@@ -3,12 +3,22 @@ require 'rails_helper'
 RSpec.describe Booking, type: :model do 
 subject {build(:booking)}
    context 'validations' do 
-   it 'is valid with valid attributes' do 
-   expect(subject).to be_valid 
+   it 'has a valid factory' do 
+   expect(build(:booking)).to be_valid
    end 
     it 'is not valid without a date' do 
     subject.date_of = nil
     expect(subject).to_not be_valid
    end
+
+  context "associations" do 
+  it {expect(subject).to belong_to(:user)}
+  it {expect(subject).to belong_to(:address)}
+  it {expect(subject).to have_many(:booking_services)}
+  it {expect(subject).to have_many(:services).through(:booking_services)}
+  end
   end 
 end 
+
+
+

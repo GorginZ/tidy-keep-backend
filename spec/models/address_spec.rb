@@ -4,22 +4,18 @@ RSpec.describe Address, type: :model do
   subject {build(:address)}
 
    context 'validations' do 
-   it 'is valid with valid attributes' do 
-   expect(subject).to be_valid 
+    it 'has a valid factory' do
+      expect(build(:address)).to be_valid
    end 
-   it 'is not valid without a street' do
-     subject.street_address = nil
-     expect(subject).to_not be_valid 
-   end
-      it 'is not valid without a state' do
-     subject.state = nil
-     expect(subject).to_not be_valid 
-   end
-      it 'is not valid without a postcode' do
-     subject.post_code = nil
-     expect(subject).to_not be_valid 
-   end
+   it { expect(subject).to validate_presence_of (:street_address)}
+   it { expect(subject).to validate_presence_of (:state)}
+   it { expect(subject).to validate_presence_of (:post_code)}
 
   end 
+
+  context "associations" do 
+  it {expect(subject).to have_many(:bookings)}
+  it {expect(subject).to belong_to(:user)}
+  end
 end 
 
