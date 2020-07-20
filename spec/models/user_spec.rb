@@ -1,27 +1,23 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do 
- 
-  subject {build(:user)}
-   context 'validations' do 
-   it 'is valid with valid attributes' do 
-   expect(subject).to be_valid 
-   end 
-   it 'is not valid without a first name' do
-     subject.first_name = nil
-     expect(subject).to_not be_valid 
-   end
-   it 'is not valid without a last name' do
-     subject.last_name = nil
-     expect(subject).to_not be_valid 
-   end
-   it 'is not valid without a email' do
-     subject.email = nil 
-     expect(subject).to_not be_valid
-     end 
-    it 'is not valid without a password' do 
-    subject.password = nil
-    expect(subject).to_not be_valid
-   end
-  end 
-end 
+RSpec.describe User, type: :model do
+  subject { build(:user) }
+
+  context 'validations' do
+    it 'has a valid factory' do
+      expect(build(:user)).to be_valid
+    end
+
+    it {expect(subject).to validate_presence_of(:email) }
+    it {expect(subject).to validate_uniqueness_of(:email) }
+    it {expect(subject).to validate_presence_of(:first_name) }
+    it {expect(subject).to validate_presence_of(:last_name) }
+    it {expect(subject).to validate_presence_of(:phone) }
+    it {expect(subject).to have_secure_password }
+end
+
+context 'associations' do
+      it {expect(subject).to have_many(:addresses) }
+      it {expect(subject).to have_many(:bookings) }
+  end
+end
