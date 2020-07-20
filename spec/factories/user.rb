@@ -6,7 +6,7 @@ FactoryBot.define do
     first_name {'First'}
     last_name {'Last'}
     password { "password123"}
-    phone {458764333}
+    phone {'0432989648'}
   end 
 end 
 
