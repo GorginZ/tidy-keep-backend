@@ -1,16 +1,18 @@
-example_id                           | status | run_time        |
------------------------------------- | ------ | --------------- |
-./spec/models/address_spec.rb[1:1:1] | passed | 0.01388 seconds |
-./spec/models/address_spec.rb[1:1:2] | passed | 0.02061 seconds |
-./spec/models/address_spec.rb[1:1:3] | passed | 0.04712 seconds |
-./spec/models/address_spec.rb[1:1:4] | passed | 0.00955 seconds |
-./spec/models/booking_spec.rb[1:1:1] | passed | 0.16288 seconds |
-./spec/models/booking_spec.rb[1:1:2] | passed | 0.01916 seconds |
-./spec/models/service_spec.rb[1:1:1] | passed | 0.00739 seconds |
-./spec/models/service_spec.rb[1:1:2] | passed | 0.00876 seconds |
-./spec/models/service_spec.rb[1:1:3] | passed | 0.05146 seconds |
-./spec/models/user_spec.rb[1:1:1]    | passed | 0.04557 seconds |
-./spec/models/user_spec.rb[1:1:2]    | passed | 0.02993 seconds |
-./spec/models/user_spec.rb[1:1:3]    | passed | 0.01347 seconds |
-./spec/models/user_spec.rb[1:1:4]    | passed | 0.03044 seconds |
-./spec/models/user_spec.rb[1:1:5]    | passed | 0.00869 seconds |
+example_id                                  | status | run_time        |
+------------------------------------------- | ------ | --------------- |
+./spec/models/BookingService_spec.rb[1:1:1] | passed | 0.00719 seconds |
+./spec/models/BookingService_spec.rb[1:1:2] | passed | 0.01864 seconds |
+./spec/models/address_spec.rb[1:1:1]        | passed | 0.00437 seconds |
+./spec/models/address_spec.rb[1:1:2]        | passed | 0.00403 seconds |
+./spec/models/address_spec.rb[1:1:3]        | passed | 0.02116 seconds |
+./spec/models/address_spec.rb[1:1:4]        | passed | 0.00365 seconds |
+./spec/models/booking_spec.rb[1:1:1]        | passed | 0.00495 seconds |
+./spec/models/booking_spec.rb[1:1:2]        | passed | 0.01917 seconds |
+./spec/models/service_spec.rb[1:1:1]        | passed | 0.04516 seconds |
+./spec/models/service_spec.rb[1:1:2]        | passed | 0.00261 seconds |
+./spec/models/service_spec.rb[1:1:3]        | passed | 0.00696 seconds |
+./spec/models/user_spec.rb[1:1:1]           | passed | 0.01935 seconds |
+./spec/models/user_spec.rb[1:1:2]           | passed | 0.00555 seconds |
+./spec/models/user_spec.rb[1:1:3]           | passed | 0.00526 seconds |
+./spec/models/user_spec.rb[1:1:4]           | passed | 0.00531 seconds |
+./spec/models/user_spec.rb[1:1:5]           | passed | 0.00621 seconds |

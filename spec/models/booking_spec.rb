@@ -12,3 +12,6 @@ subject {build(:booking)}
    end
   end 
 end 
+
+
+
