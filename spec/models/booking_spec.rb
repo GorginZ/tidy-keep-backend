@@ -10,6 +10,13 @@ subject {build(:booking)}
     subject.date_of = nil
     expect(subject).to_not be_valid
    end
+
+  context "associations" do 
+  it {expect(subject).to belong_to(:user)}
+  it {expect(subject).to belong_to(:address)}
+  it {expect(subject).to have_many(:booking_services)}
+  it {expect(subject).to have_many(:services).through(:booking_services)}
+  end
   end 
 end 
 
