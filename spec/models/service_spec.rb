@@ -1,13 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Service, type: :model do 
- 
-  subject{
-    Service.new(
-      title: "two_bedroom",
-      price: 150
-    )
-  }
+subject {build(:service)}
    context 'validations' do 
    it 'is valid with valid attributes' do 
    expect(subject).to be_valid 
