@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Booking, type: :model do 
 subject {build(:booking)}
    context 'validations' do 
-   it 'is valid with valid attributes' do 
-   expect(subject).to be_valid 
+   it 'has a valid factory' do 
+   expect(build(:booking)).to be_valid
    end 
     it 'is not valid without a date' do 
     subject.date_of = nil
