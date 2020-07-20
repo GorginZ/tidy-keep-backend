@@ -3,6 +3,6 @@ FactoryBot.define do
     user
     street_address { "MyText" }
     state { "MyText" }
-    postcode { 1 }
+    post_code { 1 }
   end
 end
