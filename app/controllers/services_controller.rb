@@ -13,7 +13,7 @@ def index
   end 
 
   def create 
-    Bookmark.create(service_params)
+    Service.create(service_params)
     render json: "service added", status: 200 
   end 
 

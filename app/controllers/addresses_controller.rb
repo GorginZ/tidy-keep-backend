@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-
+before_action :authenticate_user
   def index
     @address = Address.all
     render json: @address
@@ -8,8 +8,6 @@ class AddressesController < ApplicationController
   def show 
     render json: @address
   end 
-
-
 
 # address or addresses
   def create 
