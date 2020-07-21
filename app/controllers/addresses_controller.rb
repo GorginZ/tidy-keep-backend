@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-before_action :authenticate_user
+# before_action :authenticate_user
   def index
     @address = Address.all
     render json: @address
@@ -11,8 +11,10 @@ before_action :authenticate_user
 
 # address or addresses
   def create 
-    address = current_user.address.create(address_params)
-    render json: "address added", status: 200 
+    Address.create(address_params)
+    render json: "Address added", status: 200 
+    # address = current_user.address.create(address_params)
+    # render json: "address added", status: 200 
   end 
 
   def update 
