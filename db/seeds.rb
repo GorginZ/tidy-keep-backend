@@ -9,45 +9,66 @@ User.create(
 
 Service.create(
   title: 'bathroom',
-  price: 50
+  price: 40
 )
 
 Service.create(
   title: 'bedroom',
-  price: 130
+  price: 50
 )
 
 Service.create(
   title: 'standard',
-  price: 100
+  price: 130
 )
 
 Service.create(
   title: 'deluxe',
-  price: 200
+  price: 180
 )
 
 Service.create(
   title: 'deep clean',
-  price: 300
+  price: 230
 )
 
 Service.create(
   title: 'moving in/out',
-  price: 400
+  price: 300
 )
 
-Booking.create(
-  user_id: 1,
-  date_of: '25/02/15',
-  recurring: true,
-  address_id: 1
-
+Service.create(
+  title: 'dishes',
+  price: 25
 )
-BookingService.create(
-  service_id: 1,
-  booking_id: 1,
-  quantity: 2
 
+Service.create(
+  title: 'laundry',
+  price: 25
 )
+
+Service.create(
+  title: 'oven',
+  price: 25
+)
+
+Service.create(
+  title: 'cabinets',
+  price: 25
+)
+
+
+# Booking.create(
+#   user_id: 1,
+#   date_of: '25/02/15',
+#   recurring: true,
+#   address_id: 1
+
+# )
+# BookingService.create(
+#   service_id: 1,
+#   booking_id: 1,
+#   quantity: 2
+
+# )
 
