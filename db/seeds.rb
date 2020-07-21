@@ -59,7 +59,6 @@ Service.create(
 
 
 # Booking.create(
-#   user_id: 1,
 #   date_of: '25/02/15',
 #   recurring: true,
 #   address_id: 1

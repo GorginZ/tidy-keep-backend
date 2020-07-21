@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_07_21_045142) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    # t.bigint "user_id", null: false
     t.date "date_of"
     t.boolean "recurring"
     t.datetime "created_at", precision: 6, null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_07_21_045142) do
     t.bigint "address_id", null: false
     t.integer "price"
     t.index ["address_id"], name: "index_bookings_on_address_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
+    # t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "services", force: :cascade do |t|
