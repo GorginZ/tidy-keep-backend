@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def show 
-    render json @booking
+    render json: @booking
   end 
 
   def create 
@@ -27,12 +27,13 @@ class BookingsController < ApplicationController
   private 
 
   def booking_params 
-    params.require(:booking).permit(:title, :price)
+    params.require(:booking).permit(:date_of, :recurring, :price, :address_id, :user_id)
   end 
 
   def set_booking 
- @booking = Booking.find(params[:id])
+  @booking = Booking.find(params[:id])
   end 
 
 
 end
+
