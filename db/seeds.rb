@@ -58,16 +58,16 @@ Service.create(
 )
 
 
-# Booking.create(
-#   date_of: '25/02/15',
-#   recurring: true,
-#   address_id: 1
+Booking.create(
+  date_of: '25/02/15',
+  recurring: true,
+  address_id: 1
 
-# )
-# BookingService.create(
-#   service_id: 1,
-#   booking_id: 1,
-#   quantity: 2
+)
+BookingService.create(
+  service_id: 1,
+  booking_id: 1,
+  quantity: 2
 
-# )
+)
 
