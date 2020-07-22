@@ -59,7 +59,7 @@ Service.create(
 
 
 Booking.create(
-  date_of: '25/02/15',
+  date_of: '2020/06/22',
   recurring: true,
   address_id: 1
 
