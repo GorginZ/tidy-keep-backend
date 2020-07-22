@@ -1,6 +1,6 @@
 class StatusController < ApplicationController
   before_action :authenticate_user
-# passes JWT in headers
+  # passes JWT in headers
   def index
     render json: { message: 'logged in' }
   end

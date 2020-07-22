@@ -18,6 +18,5 @@ end
 
 context 'associations' do
       it {expect(subject).to have_many(:addresses) }
-      it {expect(subject).to have_many(:bookings) }
   end
 end
