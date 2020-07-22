@@ -4,19 +4,14 @@ RSpec.describe "Addresses", type: :request do
   describe 'GET addresses#index' do 
   before(:example)do
   #Arrange
-  user = create(:user)
-
-  token = Knock::AuthToken.new(payload: {sub: user.id}).token
-
-  auth = { 'Authorization': "Bearer #{token}" }
-
+    
     @first_address = create(:address)
     @last_address = create(:address)
 
   #Act
-  get '/addresses', headers: auth
-  @json_response = JSON.parse(response.body)
-    end 
+    get '/addresses', headers: authenticated_header()
+    @json_response = JSON.parse(response.body)
+  end 
   #assertions
   it 'returns http success code' do
     expect(response).to have_http_status(:success)
@@ -29,6 +24,24 @@ RSpec.describe "Addresses", type: :request do
       'state' => @first_address.state,  
       'post_code' =>@first_address.post_code
     })
+    end
   end
+
+  describe 'POST addresses#create' do
+  # #Arrange
+    context 'when the address is valid' do
+      before(:example) do 
+        @address_params = attributes_for(:address)
+        post '/addresses', params: { address: @address_params }, headers: authenticated_header()
+      end 
+
+      it 'returns a http created status' do 
+        expect(response).to have_http_status(:created)
+      end
+
+      it 'saves the address to the database' do
+        expect(Address.last.street_address).to eq(@address_params[:street_address])
+      end 
+    end
   end
 end

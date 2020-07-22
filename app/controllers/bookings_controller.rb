@@ -1,39 +1,35 @@
 class BookingsController < ApplicationController
-
   def index
     @booking = Booking.all
     render json: @booking
   end
 
-  def show 
+  def show
     render json: @booking
-  end 
+  end
 
-  def create 
+  def create
     Booking.create(booking_params)
-    render json: "booking added", status: 200 
-  end 
+    render json: "booking added", status: 200
+  end
 
-  def update 
- @booking.update(booking_params)
+  def update
+    @booking.update(booking_params)
     render json: "booking was updated", status: 200
-  end 
+  end
 
   def destroy
- @booking.destroy
+    @booking.destroy
     render json: "booking was deleted", status: 200
-  end 
+  end
 
-  private 
+  private
 
-  def booking_params 
+  def booking_params
     params.require(:booking).permit(:date_of, :recurring, :price, :address_id, :user_id)
-  end 
+  end
 
-  def set_booking 
-  @booking = Booking.find(params[:id])
-  end 
-
-
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 end
-
