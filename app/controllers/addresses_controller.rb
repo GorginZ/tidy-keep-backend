@@ -16,18 +16,27 @@ class AddressesController < ApplicationController
     if address.save
       render json: "address added", status: :created
     else
-      render json: "address not saved"
+      render json: {errors: address.errors.full_messages}, status: :unprocessable_entity 
       end
   end
 
   def update
-    @address.update(address_params)
-    render json: "address was updated", status: 200
+    address = Address.find(params[:id])
+    if address.update(address_params)
+    render json:{}, status: :no_content
+    else  
+    render json: {errors: address.errors.full_messages}, status: :unprocessable_entity 
+    end 
+    # @address.update(address_params)
+    # render json: "address was updated", status: 200
   end
 
   def destroy
-    @address.destroy
-    render json: "address was deleted", status: 200
+    address = Address.find(params[:id])
+    address.delete
+    render json:{}, status: :no_content
+    # @address.destroy
+    # render json: "address was deleted", status: 200
   end
 
   private
