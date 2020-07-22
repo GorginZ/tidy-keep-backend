@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
-# before_action :authenticate_user
-# before_action :set_address, only: %i[show update destroy]
+before_action :authenticate_user
+before_action :set_address, only: %i[show update destroy]
   def index
     @address = Address.all
     render json: @address
@@ -12,10 +12,14 @@ class AddressesController < ApplicationController
 
 # address or addresses
   def create 
-    Address.create(address_params)
-    render json: "Address added", status: 200 
-    # address = current_user.address.create(address_params)
-    # render json: "address added", status: 200 
+    address = current_user.addresses.create(address_params)
+    if address.save
+      render json: "address added", status: 200 
+     else 
+      render json: "address not saved"
+      end
+
+
   end 
 
   def update 
