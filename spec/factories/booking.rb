@@ -1,7 +1,7 @@
 FactoryBot.define do 
   factory :booking  do 
     user
-    address_id {3}
+    address
     date_of {1.week.ago}
     recurring {true}
     price {270}

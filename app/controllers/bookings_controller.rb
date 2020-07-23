@@ -2,10 +2,10 @@ class BookingsController < ApplicationController
 before_action :authenticate_user
 before_action :set_booking, only: %i[show update destroy]
   def index
-  # @booking = Booking.all
-  # render json: @booking
-    @bookings = current_user.bookings.order(booking_id: 'asc')
-    render json: @bookings
+  @booking = Booking.all
+  render json: @booking
+    # @bookings = current_user.bookings.order(id: 'asc')
+    # render json: @bookings
   end
 
   def show 
@@ -39,7 +39,7 @@ before_action :set_booking, only: %i[show update destroy]
   private 
 
   def booking_params 
-    params.require(:booking).permit(:date_of, :recurring, :price, :booking_id, :user_id, :date_of)
+    params.require(:booking).permit(:date_of, :recurring, :price, :booking_id, :user_id, :date_of, :address_id)
   end 
 
   def set_booking 
