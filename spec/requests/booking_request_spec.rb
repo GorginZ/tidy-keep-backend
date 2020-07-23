@@ -66,23 +66,23 @@ RSpec.describe "Bookings", type: :request do
     context 'when the params are valid' do 
       before(:example)do
         @booking = create(:booking)
-        @updated_booking_date = "Updated Date"
-        put "/bookings/#{@booking.id}",params: { booking: {price: @updated_price} }, headers: authenticated_header()
+        @updated_booking_price = 200
+        put "/bookings/#{@booking.id}",params: { booking: {price: @updated_booking_price} }, headers: authenticated_header()
     end
 
       it 'has a http no content response status' do
         expect(response).to have_http_status(:no_content)
       end
 
-      it 'updates the booking date_of in the database' do
-        expect(Booking.find(@booking.id).date_of).to eq(@updated_date_of)
+      it 'updates the booking price in the database' do
+        expect(Booking.find(@booking.id).price).to eq(@updated_booking_price)
       end
     end   
   context 'when the params are invalid' do
     before(:example) do
       @booking = create(:booking)
-      @updated_date_of = "Updated date_of"
-        put "/bookings/#{@booking.id}",params: { booking: {date_of: nil} }, headers: authenticated_header()
+      @updated_price = "Updated price"
+        put "/bookings/#{@booking.id}",params: { booking: {price: nil} }, headers: authenticated_header()
       @json_response = JSON.parse(response.body)
     end
     it 'returns an unprocessable entity response ' do 
