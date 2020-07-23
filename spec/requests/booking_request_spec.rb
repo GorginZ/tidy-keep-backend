@@ -98,7 +98,7 @@ RSpec.describe "Bookings", type: :request do
   before(:example) do
   booking = create(:booking)
   # booking_id wrong?
-  delete "/bookings/#{booking.id}", params: { booking: {booking_id: @booking_params} }, headers: authenticated_header()
+  delete "/bookings/#{booking.id}", params: { booking: {id: @booking_params} }, headers: authenticated_header()
   end 
   
   it 'has a http no content response status' do

@@ -24,7 +24,7 @@ before_action :set_booking, only: %i[show update destroy]
   def update 
  @booking.update(booking_params)
      if @booking.update(booking_params)
-        render json: "booking was updated", status: 200
+        render json: "booking was updated", status: :no_content
     else  
     render json: {errors: @booking.errors.full_messages}, status: :unprocessable_entity 
     end 
@@ -32,7 +32,7 @@ before_action :set_booking, only: %i[show update destroy]
 
   def destroy
     @booking.destroy
-    render json: "booking was deleted", status: 200
+    render json: "booking was deleted", status: :no_content
   end 
 
   private 
