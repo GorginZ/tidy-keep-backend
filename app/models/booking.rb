@@ -4,5 +4,5 @@ class Booking < ApplicationRecord
   has_many :services, through: :booking_services
   validates :date_of, presence: true
   validates :price, presence: true
-  validates :recurring, presence: true
+  # validates :recurring, presence: true
 end
