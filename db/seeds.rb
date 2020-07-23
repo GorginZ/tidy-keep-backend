@@ -61,7 +61,7 @@ Service.create(
 Booking.create(
   date_of: '2020/06/25',
   recurring: true,
-  address_id: 1
+  address_id: 1,
   price: 100
 
 )
