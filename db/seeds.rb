@@ -59,11 +59,14 @@ Service.create(
 
 
 Booking.create(
-  date_of: '2020/06/22',
+  date_of: '2020/06/25',
   recurring: true,
   address_id: 1
+  price: 100
 
 )
+
+
 BookingService.create(
   service_id: 1,
   booking_id: 1,
