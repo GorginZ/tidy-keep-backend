@@ -22,8 +22,6 @@ RSpec.describe "Bookings", type: :request do
       'address_id' => @first_booking.address_id,
       'recurring' =>  @first_booking.recurring,
       'price' => @first_booking.price,
-  
-
     })
     end
   end
@@ -59,9 +57,6 @@ RSpec.describe "Bookings", type: :request do
     end
   end  
  end
-
-
-
   describe 'PUT bookings#update' do
     context 'when the params are valid' do 
       before(:example)do
@@ -108,9 +103,4 @@ RSpec.describe "Bookings", type: :request do
   it 'removes the booking from the database' do 
   expect(Booking.count).to eq(0)
   end 
-
-
-
-
-
 end
