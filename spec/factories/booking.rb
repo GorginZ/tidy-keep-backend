@@ -1,8 +1,12 @@
 FactoryBot.define do 
   factory :booking  do 
+    user
     address
     date_of {1.week.ago}
     recurring {true}
     price {270}
+      trait :invalid do
+      address_id {nil}
+      end
   end 
 end 
