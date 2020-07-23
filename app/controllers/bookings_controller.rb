@@ -4,7 +4,7 @@ before_action :set_booking, only: %i[show update destroy]
   def index
   # @booking = Booking.all
   # render json: @booking
-    @bookings = current_user.bookings.order(address_id: 'asc')
+    @bookings = current_user.bookings.order(booking_id: 'asc')
     render json: @bookings
   end
 
@@ -15,26 +15,31 @@ before_action :set_booking, only: %i[show update destroy]
   def create 
     booking = current_user.bookings.create(booking_params)
     if booking.save
-      render json: "booking created", status: 200 
+      render json: "booking created", status: :created 
      else 
-      render json: "booking was not saved", status: 422
+      render json: {errors: booking.errors.full_messages}, status: :unprocessable_entity 
       end
       end
 
   def update 
  @booking.update(booking_params)
     render json: "booking was updated", status: 200
+    #  if booking.update(booking_params)
+    # render json:{}, status: :no_content
+    # else  
+    # render json: {errors: booking.errors.full_messages}, status: :unprocessable_entity 
+    # end 
   end 
 
   def destroy
- @booking.destroy
+    @booking.destroy
     render json: "booking was deleted", status: 200
   end 
 
   private 
 
   def booking_params 
-    params.require(:booking).permit(:date_of, :recurring, :price, :address_id, :user_id, :date_of)
+    params.require(:booking).permit(:date_of, :recurring, :price, :booking_id, :user_id, :date_of)
   end 
 
   def set_booking 
