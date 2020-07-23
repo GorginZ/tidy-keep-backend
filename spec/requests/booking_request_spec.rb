@@ -59,4 +59,58 @@ RSpec.describe "Bookings", type: :request do
     end
   end  
  end
+
+
+
+  describe 'PUT bookings#update' do
+    context 'when the params are valid' do 
+      before(:example)do
+        @booking = create(:booking)
+        @updated_booking_date = "Updated Date"
+        put "/bookings/#{@booking.id}",params: { booking: {price: @updated_price} }, headers: authenticated_header()
+    end
+
+      it 'has a http no content response status' do
+        expect(response).to have_http_status(:no_content)
+      end
+
+      it 'updates the booking date_of in the database' do
+        expect(Booking.find(@booking.id).date_of).to eq(@updated_date_of)
+      end
+    end   
+  context 'when the params are invalid' do
+    before(:example) do
+      @booking = create(:booking)
+      @updated_date_of = "Updated date_of"
+        put "/bookings/#{@booking.id}",params: { booking: {date_of: nil} }, headers: authenticated_header()
+      @json_response = JSON.parse(response.body)
+    end
+    it 'returns an unprocessable entity response ' do 
+    expect(response).to have_http_status(:unprocessable_entity)
+  end
+    it 'has the correct number of errors'do
+      expect(@json_response['errors'].count).to eq(1)
+    end
+  end
+ end
+
+ describe 'DELETE booking#destroy'
+  before(:example) do
+  booking = create(:booking)
+  # booking_id wrong?
+  delete "/bookings/#{booking.id}", params: { booking: {booking_id: @booking_params} }, headers: authenticated_header()
+  end 
+  
+  it 'has a http no content response status' do
+  expect(response).to have_http_status(:no_content)
+  end 
+
+  it 'removes the booking from the database' do 
+  expect(Booking.count).to eq(0)
+  end 
+
+
+
+
+
 end
