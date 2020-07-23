@@ -1,41 +1,39 @@
 class ServicesController < ApplicationController
-def index
+  def index
     @services = Service.all
-  end
- 
-  def index 
+    end
+
+  def index
     @services = Service.all.order(id: "desc")
     render json: @services
-  end 
+  end
 
-  def show 
+  def show
     render json: @service
-  end 
+  end
 
-  def create 
+  def create
     Service.create(service_params)
-    render json: "service added", status: 200 
-  end 
+    render json: "service added", status: 200
+  end
 
-  def update 
+  def update
     @service.update(service_params)
     render json: "service was updated", status: 200
-  end 
+  end
 
   def destroy
     @service.destroy
     render json: "service was deleted", status: 200
-  end 
+  end
 
-  private 
+  private
 
-  def service_params 
+  def service_params
     params.require(:service).permit(:title, :price)
-  end 
+  end
 
-  def set_service 
+  def set_service
     @service = Service.find(params[:id])
-  end 
-
-
+  end
 end

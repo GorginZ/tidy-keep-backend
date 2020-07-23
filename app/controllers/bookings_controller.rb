@@ -8,9 +8,9 @@ before_action :set_booking, only: %i[show update destroy]
     # render json: @bookings
   end
 
-  def show 
+  def show
     render json: @booking
-  end 
+  end
 
   def create 
     booking = current_user.bookings.create(booking_params)
@@ -35,7 +35,7 @@ before_action :set_booking, only: %i[show update destroy]
     render json: "booking was deleted", status: :no_content
   end 
 
-  private 
+  private
 
   def booking_params 
     params.require(:booking).permit(:date_of, :recurring, :price, :booking_id, :user_id, :date_of, :address_id)
@@ -46,5 +46,7 @@ before_action :set_booking, only: %i[show update destroy]
   end 
 
 
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 end
-

@@ -4,5 +4,4 @@ class Address < ApplicationRecord
   validates :street_address, presence: true
   validates :state, presence: true
   validates :post_code, presence: true
-
 end
