@@ -38,7 +38,7 @@ before_action :set_booking, only: %i[show update destroy]
   private
 
   def booking_params 
-    params.require(:booking).permit(:date_of, :recurring, :price, :booking_id, :user_id, :date_of, :address_id, :time_of)
+    params.require(:booking).permit(:recurring, :price, :booking_id, :user_id, :datetime, :address_id)
   end 
 
   def set_booking 
