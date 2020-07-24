@@ -2,8 +2,8 @@ class BookingsController < ApplicationController
 before_action :authenticate_user
 before_action :set_booking, only: %i[show update destroy]
   def index
-  @booking = Booking.all
-  render json: @booking
+  @bookings = Booking.all
+  render json: @bookings
     # @bookings = current_user.bookings.order(id: 'asc')
     # render json: @bookings
   end
