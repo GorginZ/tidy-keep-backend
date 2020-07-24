@@ -58,12 +58,11 @@ Service.create(
 )
 
 Booking.create(
-  date_of: '2020/07/25',
+  datetime: '2020/07/25',
   recurring: true,
   address_id: 1,
   price: 100,
   user_id: 1,
-  time_of: '10:30'
 
 )
 BookingService.create(
