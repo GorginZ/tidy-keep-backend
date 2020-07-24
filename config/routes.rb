@@ -10,5 +10,6 @@ post "/sign-up", to: "users#create"
 
 resources :bookings
 resources :addresses
+resources :booking_service, only: %i[create]
 
 end
