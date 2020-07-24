@@ -4,7 +4,9 @@ User.create(
 User.create(
   email: "g@gmail.com", password: "password", first_name: "Georgia", last_name: "Leng", phone: "0455343335")
 
- Address.create(user_id: 1, street_address: "120 Spencer Street", state: "Vic", post_code: 3003)
+ Address.create(user_id: 1, street_address: "120 Spencer Street", state: "VIC", post_code: 3003)
+
+  Address.create(user_id: 1, street_address: "65 fake Street", state: "NSW", post_code: 3137)
 
 
 Service.create(
