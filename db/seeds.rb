@@ -52,12 +52,12 @@ Service.create(
 )
 
 Service.create(
-  title: 'oven',
+  title: 'inside oven',
   price: 25
 )
 
 Service.create(
-  title: 'cabinets',
+  title: 'inside cabinets',
   price: 25
 )
 
