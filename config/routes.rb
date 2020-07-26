@@ -11,5 +11,7 @@ post "/sign-up", to: "users#create"
 resources :bookings
 resources :addresses
 resources :booking_service, only: %i[create]
-
+resources :invoices
+resources :payments
+post "/booking_service", to: "bookingservice#create"
 end

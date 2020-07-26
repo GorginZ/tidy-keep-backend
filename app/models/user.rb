@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :addresses
   has_many :bookings
+  has_many :invoices
 
   has_secure_password
   validates :email, presence: true, uniqueness: true

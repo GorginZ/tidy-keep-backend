@@ -1,59 +1,37 @@
 class PaymentsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:webhook]
+  # skip_before_action :verify_authenticity_token, only: [:webhook]
 
 # looking into creating invoice different to making one off charges
 # will return to this after booking flow is finalized. 
 require 'stripe'
-def make_stripe_invoice
-@booking = Booking.find(params[:id])
-Stripe::Invoice.create({
-  customer: current_user.first_name,
-  customer_email: current_user.email,
-  auto_advance: true,
-  collection_method: charge_automatically,
-  amount: @booking.price * 100,
-  currency: 'aud',
+def new
+		@invoice = Invoice.find(params[:invoice_id])
+	end
+              # :invoice_amt or :invoice_amount
+	def create
+	  Stripe.api_key = "sk_test_jKDPCGRhB53sQ2dYEa2N3iuB"
+	  @invoice_amount = params[:invoice_amount]
+	  @amount = params[:invoice_amount].to_i * 100
 
-})
-end
+	  customer = Stripe::Customer.create(
+	    :email => params[:stripeEmail],
+	    :source  => params[:stripeToken]
+	  )
 
-                  # def get_stripe_id
-                  #   @booking = Booking.find(params[:id])
-                  #   session_id = Stripe::Checkout::Session.create(
-                  #     payment_method_types: ['card'],
-                  #     customer_email: current_user.email,
-                  #     line_items: [{
-                  #       name: @listing.title,
-                  #       description: @listing.keywords,
-                  #       amount: @listing.price * 100,
-                  #       currency: 'aud',
-                  #       quantity: 1,
-                  #     }],
-                  #     payment_intent_data: {
-                  #       metadata: {
-                  #         user_id: current_user.id,
-                  #         listing_id: @listing.id
-                  #       }
-                  #     },
-                  #     success_url: "#{root_url}/orders/my_orders?userId=#{current_user.id}&listingId=#{@listing.id}",
-                  #     cancel_url: "#{root_url}listings"
-                  #   ).id
-                  #   render :json => { id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key) }
-    end
+	  charge = Stripe::Charge.create(
+	    :customer    => customer.id,
+	    :amount      => @amount,
+	    :description => 'Rails Stripe customer',
+	    :currency    => 'aud'
+	  )
+		@invoice = Invoice.find(params[:invoice_id])
+		if @invoice.update(stripe_payment: params[:stripeToken], paid_date: Time.now.strftime("%Y-%m-%d"))
+            render json: "invoice paid", status: :no_content
+        else 
+              render json: {errors: @invoice.errors.full_messages}
 
-  def success
-    redirect_to my_bookings_path
-  end
-
-# not sure if we need or how to set up webhook 
-  def webhook
-    payment_id = params[:data][:object][:payment_intent]
-    payment = Stripe::PaymentIntent.retrieve(payment_id)
-    booking_id = payment.metadata.booking_id
-    user_id = payment.metadata.user_id
-    head 200
-  end
-
-  def failure
-  end
+      	end
+		rescue Stripe::CardError => e
+		  render json: {errors: @invoice.errors_fullmessages}
+		end
 end
