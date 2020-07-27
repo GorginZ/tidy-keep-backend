@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+require 'active_support/core_ext'
 before_action :authenticate_user
 before_action :set_booking, only: %i[show update destroy]
   def index
@@ -14,11 +15,42 @@ before_action :set_booking, only: %i[show update destroy]
 
   def create 
     booking = current_user.bookings.create(booking_params)
-    if booking.save
+    if booking.save && booking.recurring
+          current_user.bookings.create(
+            price: booking.price,
+            user_id: booking.user_id,
+            datetime: booking.datetime + 1.weeks,
+            address_id: booking.address_id,
+            recurring: true
+          )
+           current_user.bookings.create(
+            price: booking.price,
+            user_id: booking.user_id,
+            datetime: booking.datetime + 2.weeks,
+            address_id: booking.address_id,
+            recurring: true
+          )
+         current_user.bookings.create(
+            price: booking.price,
+            user_id: booking.user_id,
+            datetime: booking.datetime + 3.weeks,
+            address_id: booking.address_id,
+            recurring: true
+          )
+          current_user.bookings.create(
+            price: booking.price,
+            user_id: booking.user_id,
+            datetime: booking.datetime + 4.weeks,
+            address_id: booking.address_id,
+            recurring: true
+          )
+      
       render json: "booking created", status: :created 
-     else 
-      render json: {errors: booking.errors.full_messages}, status: :unprocessable_entity 
-      end
+    end
+
+    #  else 
+    #   render json: {errors: booking.errors.full_messages}, status: :unprocessable_entity 
+    #   end
       end
 
   def update 
