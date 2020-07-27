@@ -11,5 +11,8 @@ post "/sign-up", to: "users#create"
 resources :bookings
 resources :addresses
 resources :booking_service, only: %i[create]
-
+resources :invoices
+  get "/payments/session", to: "payments#get_stripe_id"
+  post "/payments/webhook", to: "payments#webhook"
+post "/booking_service", to: "bookingservice#create"
 end
