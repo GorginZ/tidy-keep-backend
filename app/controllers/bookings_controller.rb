@@ -3,10 +3,16 @@ require 'active_support/core_ext'
 before_action :authenticate_user
 before_action :set_booking, only: %i[show update destroy]
   def index
-  # @bookings = Booking.all
-  # render json: @bookings
+  
     @bookings = current_user.bookings.order(id: 'asc')
-    render json: @bookings
+
+    bookings_data = @bookings.map do |booking|
+      booking_hash = booking.attributes 
+      p booking_hash
+      booking_hash[:address] = {street_address: booking.address.street_address, post_code: booking.address.post_code, state: booking.address.state}
+       booking_hash
+    end
+    render json: {bookings: bookings_data}
   end
 
   def show
