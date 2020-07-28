@@ -2,7 +2,7 @@ class AddressesController < ApplicationController
   before_action :authenticate_user
   before_action :set_address, only: %i[show update destroy]
   def index
-    @address = Address.where(user_id: current_user.id)
+    @address = current_user.addresses.order(id: 'asc')
     render json: @address
   end
 
