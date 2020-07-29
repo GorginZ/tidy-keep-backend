@@ -11,12 +11,21 @@ class ServicesController < ApplicationController
 
   def create
     Service.create(service_params)
-    render json: "service added", status: 200
+    if service.save
+      render json: "service created", status: :created
+    else
+      render json: service.errors.full_messages, status: 422
+    end
   end
 
   def update
     @service.update(service_params)
-    render json: "service was updated", status: 200
+    if @service.update(service_params)
+       render json: "updated", status: :no_content
+       else
+             render json: service.errors.full_messages, status: 422
+
+   end
   end
 
   def destroy
