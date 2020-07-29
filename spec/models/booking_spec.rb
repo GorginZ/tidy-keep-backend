@@ -8,7 +8,7 @@ subject {build(:booking)}
    end 
 
     it 'is not valid without a date' do 
-    subject.date_of = nil
+    subject.datetime = nil
     expect(subject).to_not be_valid
    end
     
