@@ -10,21 +10,21 @@ class ServicesController < ApplicationController
   end
 
   def create
-    Service.create(service_params)
-    if service.save
+    @service = Service.create(service_params)
+    if @service.save
       render json: "service created", status: :created
     else
-      render json: service.errors.full_messages, status: 422
+       render json: {errors: @service.errors.full_messages}, status: :unprocessable_entity
     end
   end
+
 
   def update
     @service.update(service_params)
     if @service.update(service_params)
        render json: "updated", status: :no_content
        else
-             render json: service.errors.full_messages, status: 422
-
+          render json: {errors: @service.errors.full_messages}, status: :unprocessable_entity
    end
   end
 
