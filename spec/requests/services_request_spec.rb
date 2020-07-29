@@ -23,7 +23,7 @@ RSpec.describe "Services", type: :request do
     })
     end
   end
-# we can't test thsi until we know what our form will look like but manual testing in postman working
+
   describe 'POST service#create' do
   #Arrange
     context 'when the service is valid' do
@@ -36,9 +36,9 @@ RSpec.describe "Services", type: :request do
         expect(response).to have_http_status(:created)
       end
 
-      # it 'saves the service to the database' do
-      #   expect(Service.last.title.to eq(@first_service_params[:title]))
-      # end 
+      it 'saves the service to the database' do
+        expect(Service.last.title.to eq(@first_service_params[:title]))
+      end 
   end 
 
   context 'when the service is invalid' do
@@ -68,7 +68,7 @@ RSpec.describe "Services", type: :request do
       end
 
       it 'updates the service price in the database' do
-        expect(service.find(@service.id).price).to eq(@updated_service_price)
+        expect(Service.find(@service.id).price).to eq(@updated_service_price)
       end
     end   
   context 'when the params are invalid' do
