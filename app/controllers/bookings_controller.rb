@@ -51,11 +51,10 @@ before_action :set_booking, only: %i[show update destroy]
           )
       
       render json: "booking created", status: :created 
-    end
 
-    #  else 
-    #   render json: {errors: booking.errors.full_messages}, status: :unprocessable_entity 
-    #   end
+     else 
+      render json: {errors: booking.errors.full_messages}, status: :unprocessable_entity 
+      end
       end
 
   def update 
