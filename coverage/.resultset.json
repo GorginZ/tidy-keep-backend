@@ -1,0 +1,528 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/models/booking_service.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/models/address.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/models/booking.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/models/service.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          25,
+          null,
+          null,
+          1,
+          41,
+          null,
+          null,
+          41,
+          25,
+          null,
+          null,
+          41,
+          null,
+          null,
+          1,
+          null,
+          1,
+          41,
+          null,
+          null,
+          1,
+          25,
+          null,
+          null
+        ],
+        "branches": {
+          "[:if, 0, 13, 4, 15, 7]": {
+            "[:then, 1, 14, 6, 14, 45]": 25,
+            "[:else, 2, 13, 4, 15, 7]": 16
+          }
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/controllers/addresses_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          5,
+          5,
+          2,
+          null,
+          3,
+          null,
+          null,
+          null,
+          1,
+          4,
+          4,
+          2,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          13,
+          13,
+          13,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          9,
+          null,
+          null,
+          1,
+          17,
+          null,
+          null
+        ],
+        "branches": {
+          "[:if, 0, 16, 4, 20, 9]": {
+            "[:then, 1, 17, 6, 17, 52]": 2,
+            "[:else, 2, 19, 6, 19, 88]": 3
+          },
+          "[:if, 3, 25, 4, 29, 7]": {
+            "[:then, 4, 26, 4, 26, 39]": 2,
+            "[:else, 5, 28, 4, 28, 86]": 2
+          }
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/controllers/bookings_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          null,
+          2,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          2,
+          2,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          4,
+          4,
+          2,
+          null,
+          2,
+          null,
+          null,
+          null,
+          1,
+          10,
+          10,
+          null,
+          null,
+          1,
+          null,
+          1,
+          10,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          14,
+          null,
+          null
+        ],
+        "branches": {
+          "[:if, 0, 23, 4, 54, 7]": {
+            "[:then, 1, 24, 10, 53, 54]": 0,
+            "[:else, 2, 23, 4, 54, 7]": 2
+          },
+          "[:if, 3, 63, 5, 67, 7]": {
+            "[:then, 4, 64, 8, 64, 63]": 2,
+            "[:else, 5, 66, 4, 66, 87]": 2
+          }
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/controllers/status_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/mailers/application_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/jobs/application_job.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/controllers/users_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/controllers/payments_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/controllers/services_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/controllers/booking_service_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/controllers/user_token_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/channels/application_cable/connection.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/suetsuetfung/Desktop/TidyKeep-PartB/tidy-keep-backend/app/channels/application_cable/channel.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      }
+    },
+    "timestamp": 1596001446
+  }
+}
