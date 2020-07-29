@@ -5,7 +5,6 @@ RSpec.describe "Services", type: :request do
   before(:example)do
   #Arrange
     @first_service = create(:service)
-    # @last_service = create(:service)
 
   #Act
     get '/services', headers: authenticated_header()
@@ -35,7 +34,7 @@ RSpec.describe "Services", type: :request do
       it 'returns a http created status' do 
         expect(response).to have_http_status(:created)
       end
-          # I don't know why this fails, passes manually in postman
+          # I don't know why this below fails, passes manually in postman
       # it 'saves the service to the database' do
       #   expect(Service.last.(@first_service.price).to eq(@first_service_params[:price]))
       # end 
