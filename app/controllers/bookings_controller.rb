@@ -2,10 +2,9 @@ class BookingsController < ApplicationController
 require 'active_support/core_ext'
 before_action :authenticate_user
 before_action :set_booking, only: %i[show update destroy]
-  def index
+   def index
   
     @bookings = current_user.bookings.order(id: 'asc')
-
     bookings_data = @bookings.map do |booking|
       booking_hash = booking.attributes 
       p booking_hash
@@ -14,7 +13,7 @@ before_action :set_booking, only: %i[show update destroy]
     end
     render json: {bookings: bookings_data}
   end
-
+  
   def show
     render json: @booking
   end
