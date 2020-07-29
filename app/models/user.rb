@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates :last_name, presence: true
+  validates :first_name, presence: true
   validates :phone, presence: true
   validates_length_of :first_name, minimum: 2
   validates_length_of :last_name, minimum: 2
