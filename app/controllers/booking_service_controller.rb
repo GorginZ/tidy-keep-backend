@@ -11,30 +11,7 @@ class BookingServiceController < ApplicationController
         quantity: params[:bookingservice][:quantityArray][i]
       )
 
-      if bookingService.save 
-        BookingService.create(
-        service_id: bookingService.service_id,
-        booking_id: bookingService.booking_id - 1,
-        quantity: bookingService.quantity
-      )
-      BookingService.create(
-        service_id: bookingService.service_id,
-        booking_id: bookingService.booking_id - 2,
-        quantity: bookingService.quantity
-      )
-      BookingService.create(
-        service_id: bookingService.service_id,
-        booking_id: bookingService.booking_id - 3,
-        quantity: bookingService.quantity
-      )
-      BookingService.create(
-        service_id: bookingService.service_id,
-        booking_id: bookingService.booking_id - 4,
-        quantity: bookingService.quantity
-      )
-      end
-       i += 1
-
+      i += 1
       if i >= params[:bookingservice][:serviceArray].length
         break
       end

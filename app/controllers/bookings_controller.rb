@@ -20,36 +20,8 @@ before_action :set_booking, only: %i[show update destroy]
 
   def create 
     booking = current_user.bookings.create(booking_params)
-    if booking.save && booking.recurring
-          current_user.bookings.create(
-            price: booking.price,
-            user_id: booking.user_id,
-            datetime: booking.datetime + 1.weeks,
-            address_id: booking.address_id,
-            recurring: true
-          )
-           current_user.bookings.create(
-            price: booking.price,
-            user_id: booking.user_id,
-            datetime: booking.datetime + 2.weeks,
-            address_id: booking.address_id,
-            recurring: true
-          )
-         current_user.bookings.create(
-            price: booking.price,
-            user_id: booking.user_id,
-            datetime: booking.datetime + 3.weeks,
-            address_id: booking.address_id,
-            recurring: true
-          )
-          current_user.bookings.create(
-            price: booking.price,
-            user_id: booking.user_id,
-            datetime: booking.datetime + 4.weeks,
-            address_id: booking.address_id,
-            recurring: true
-          )
-      
+
+    if booking.save
       render json: "booking created", status: :created 
 
      else 
