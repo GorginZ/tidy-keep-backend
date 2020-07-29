@@ -28,10 +28,10 @@ class ServicesController < ApplicationController
     end 
   end
 
-
-  def destroy
-    @service.destroy
-    render json: "service was deleted", status: 200
+    def destroy
+    service = Service.find(params[:id])
+    service.delete
+    render json:{}, status: :no_content
   end
 
   private
