@@ -2,13 +2,15 @@ class PaymentsController < ApplicationController
 
   def get_stripe_id
     @booking = Booking.find(params[:id])
-   
     session_id = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       customer_email: current_user.email,
       line_items: [{
         name: " ",
-        description: "TidyKeep",
+        description: 
+        "#{@booking.address.street_address}, #{@booking.address.post_code}, #{@booking.address.state}",
+
+
         amount: @booking.price * 100,
         currency: 'aud',
         quantity: 1
