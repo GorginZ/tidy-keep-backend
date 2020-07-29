@@ -10,18 +10,28 @@ class ServicesController < ApplicationController
   end
 
   def create
-    Service.create(service_params)
-    render json: "service added", status: 200
+    @service = Service.create(service_params)
+    if @service.save
+      render json: "service created", status: :created
+    else
+       render json: {errors: @service.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
-  def update
-    @service.update(service_params)
-    render json: "service was updated", status: 200
+
+ def update
+    service = Service.find(params[:id])
+    if service.update(service_params)
+    render json:{}, status: :no_content
+    else  
+    render json: {errors: service.errors.full_messages}, status: :unprocessable_entity 
+    end 
   end
 
-  def destroy
-    @service.destroy
-    render json: "service was deleted", status: 200
+    def destroy
+    service = Service.find(params[:id])
+    service.delete
+    render json:{}, status: :no_content
   end
 
   private
