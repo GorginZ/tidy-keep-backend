@@ -2,7 +2,6 @@
 
 require 'rails_helper'
 
-<<<<<<< HEAD
 RSpec.describe "Bookings", type: :request do
   describe 'GET Bookings#index' do 
   before(:example)do
@@ -28,31 +27,6 @@ RSpec.describe "Bookings", type: :request do
       'price' => @first_booking.price,
 
     })
-=======
-RSpec.describe 'Bookings', type: :request do
-  describe 'GET Bookings#index' do
-    before(:example) do
-      # Arrange
-      @first_booking = create(:booking)
-      @last_booking = create(:booking)
-      # @address = create(:address)
-
-      # Act
-      get '/bookings', headers: authenticated_header
-      @json_response = JSON.parse(response.body)
-    end
-    # assertions
-    it 'returns http success code' do
-      expect(response).to have_http_status(:success)
-    end
-
-    it 'JSON response body contains the expected attributes' do
-      expect(@json_response[0]).to include({
-                                             'address_id' => @first_booking.address_id,
-                                             'recurring' => @first_booking.recurring,
-                                             'price' => @first_booking.price
-                                           })
->>>>>>> c19aa7994708a70efdcae3e267bb0e4633ac6676
     end
   end
   # we can't test thsi until we know what our form will look like but manual testing in postman working
