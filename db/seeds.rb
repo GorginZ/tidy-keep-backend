@@ -62,10 +62,19 @@ Service.create(
 )
 
 Booking.create(
-  datetime: '2020/07/25',
+  datetime: '2020-09-25 11:45:00.068674',
   recurring: true,
   address_id: 1,
-  price: 100,
+  price: 117,
+  user_id: 1,
+
+)
+
+Booking.create(
+  datetime: '2020-10-26 10:45:00.068674',
+  recurring: true,
+  address_id: 1,
+  price: 117,
   user_id: 1,
 
 )
