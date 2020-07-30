@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About
 
-Things you may want to cover:
+The backend for a mock-up website designed for an imaginary client as an assignment.
 
-* Ruby version
+Built using react as a front end and ruby on rails as a back end.
 
-* System dependencies
+  ruby version - 2.7.1
 
-* Configuration
+ created by Susu, Georgia and Micah.
 
-* Database creation
+## Setup
 
-* Database initialization
+  $ bundle install
 
-* How to run the test suite
+  $ rails db:reset
 
-* Services (job queues, cache servers, search engines, etc.)
+  $ rails s
 
-* Deployment instructions
-
-* ...
+Enjoy!!
