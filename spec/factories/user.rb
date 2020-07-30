@@ -10,4 +10,16 @@ FactoryBot.define do
   end 
 end 
 
+def user_with_booking
+  FactoryBot.create(:user) do |user|
+    FactoryBot.create_list(:booking,2, user: user)
+  end
+end
+
+def user_with_address
+  FactoryBot.create(:user) do |user|
+    FactoryBot.create_list(:address,2, user: user)
+  end
+end
+
 

@@ -4,12 +4,13 @@ RSpec.describe "Bookings", type: :request do
   describe 'GET Bookings#index' do 
   before(:example)do
   #Arrange
-    @first_booking = create(:booking)
-    @last_booking = create(:booking)
+    @user = user_with_booking
+    @first_booking = @user.bookings.first
+    @last_booking = @user.bookings.last
     # @address = create(:address)
 
   #Act
-    get '/bookings', headers: authenticated_header()
+    get '/bookings', headers: authenticated_user(@user)
     @json_response = JSON.parse(response.body)
   end 
   #assertions
@@ -18,10 +19,11 @@ RSpec.describe "Bookings", type: :request do
     end 
 
   it 'JSON response body contains the expected attributes' do
-    expect(@json_response[0]).to include({
+    expect(@json_response['bookings'][0]).to include({
       'address_id' => @first_booking.address_id,
       'recurring' =>  @first_booking.recurring,
       'price' => @first_booking.price,
+
     })
     end
   end

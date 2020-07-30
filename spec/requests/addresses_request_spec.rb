@@ -4,12 +4,12 @@ RSpec.describe "Addresses", type: :request do
   describe 'GET addresses#index' do 
   before(:example)do
   #Arrange
-    
-    @first_address = create(:address)
-    @last_address = create(:address)
+    @user = user_with_address
+    @first_address = @user.addresses.first
+    @last_address = @user.addresses.last
 
   #Act
-    get '/addresses', headers: authenticated_header()
+    get '/addresses', headers: authenticated_user(@user)
     @json_response = JSON.parse(response.body)
   end 
   #assertions

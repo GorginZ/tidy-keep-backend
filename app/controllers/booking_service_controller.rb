@@ -10,6 +10,7 @@ class BookingServiceController < ApplicationController
         service_id: params[:bookingservice][:serviceArray][i],
         quantity: params[:bookingservice][:quantityArray][i]
       )
+     
 
       i += 1
       if i >= params[:bookingservice][:serviceArray].length
@@ -18,8 +19,8 @@ class BookingServiceController < ApplicationController
   end
 
   
-    
-    render json: "BookingService added", status: 200
+   
+    render json: "BookingService added", status: :created
   end
 
 private
