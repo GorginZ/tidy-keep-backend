@@ -1,10 +1,10 @@
-class BookingServiceController < ApplicationController
+# frozen_string_literal: true
 
- def create
+class BookingServiceController < ApplicationController
+  def create
     i = 0
     # Inside this loop we will create a booking service for each booking that was created.
     loop do
-
       bookingService = BookingService.create(
         booking_id: params[:bookingservice][:booking_id],
         service_id: params[:bookingservice][:serviceArray][i],
@@ -13,18 +13,13 @@ class BookingServiceController < ApplicationController
      
 
       i += 1
-      if i >= params[:bookingservice][:serviceArray].length
-        break
-      end
-  end
+      break if i >= params[:bookingservice][:serviceArray].length
+    end
 
-  
-   
-    render json: "BookingService added", status: :created
-  end
+    render json: 'BookingService added', status: 200
+   end
 
-private
-
+  private
 
   def bookingservice_params
     params.require(:bookingservice).permit(:service_id, :booking_id, :quantity)
