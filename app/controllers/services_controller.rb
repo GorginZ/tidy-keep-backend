@@ -1,7 +1,8 @@
-class ServicesController < ApplicationController
+# frozen_string_literal: true
 
+class ServicesController < ApplicationController
   def index
-    @services = Service.all.order(id: "desc")
+    @services = Service.all.order(id: 'desc')
     render json: @services
   end
 
@@ -12,27 +13,26 @@ class ServicesController < ApplicationController
   def create
     @service = Service.create(service_params)
     if @service.save
-      render json: "service created", status: :created
+      render json: 'service created', status: :created
     else
-       render json: {errors: @service.errors.full_messages}, status: :unprocessable_entity
+      render json: { errors: @service.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
-
- def update
+  def update
     service = Service.find(params[:id])
     if service.update(service_params)
-    render json:{}, status: :no_content
-    else  
-    render json: {errors: service.errors.full_messages}, status: :unprocessable_entity 
-    end 
-  end
+      render json: {}, status: :no_content
+    else
+      render json: { errors: service.errors.full_messages }, status: :unprocessable_entity
+    end
+   end
 
-    def destroy
+  def destroy
     service = Service.find(params[:id])
     service.delete
-    render json:{}, status: :no_content
-  end
+    render json: {}, status: :no_content
+end
 
   private
 
