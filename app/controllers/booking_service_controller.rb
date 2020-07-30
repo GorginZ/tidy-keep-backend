@@ -10,6 +10,7 @@ class BookingServiceController < ApplicationController
         service_id: params[:bookingservice][:serviceArray][i],
         quantity: params[:bookingservice][:quantityArray][i]
       )
+     
 
       i += 1
       break if i >= params[:bookingservice][:serviceArray].length
